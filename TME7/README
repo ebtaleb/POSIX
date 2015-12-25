@@ -1,0 +1,29 @@
+== Participants : 1 ==
+
+	Elias BOUTALEB
+
+== Fichiers inclus ==
+
+    src/ficindex.c
+    Librairie de manipulation de fichiers indexÃs.
+
+== Directives de 'Makefile' ==
+
+	run-autotest
+		Compilation de autotest
+		Lancement de autotest
+
+	directories
+		Création des répertoires temporaires s'ils n'existent pas déjà
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+	cleanall
+		Suppression des répertoires et fichiers temporaires
+
+
+== Etat d'avancement ==
+
+== Réponses ==
+

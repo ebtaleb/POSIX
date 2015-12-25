@@ -1,0 +1,127 @@
+== Participants : 1 ==
+
+	Elias BOUTALEB
+
+
+== Fichiers inclus ==
+
+    src/init-sigs-ex1
+        Des programmes dont le comportement face aux signaux doit être étudié.
+        [Ex. 1]
+
+    src/voodoo.c
+        Crée un zombie - processus fils qui se termine sans que le parent l'attende et lise son code de sortie.
+        [Ex. 2]
+
+    src/pending-signals.c
+        [Ex. 3]
+
+    src/pending-signals-2.c
+        [Ex. 4]
+
+    src/pending-signals-3.c
+        [Ex. 5]
+
+    src/accountant.c
+        [Ex. 5]
+
+    src/spy.c
+        Mini shell.
+        [Ex. 7]
+
+
+== Directives de 'Makefile' ==
+
+	runex2
+		Compilation de voodoo.c
+		Lancement de voodoo
+
+	runex3
+		Compilation de pending-signals.c
+		Lancement de pending-signals.c
+
+	runex4
+		Compilation de pending-signals-2.c
+		Lancement de pending-signals-2.c
+
+	runex5
+		Compilation de pending-signals-3.c
+		Lancement de pending-signals-3.c
+
+	runex6
+		Compilation de accountant.c
+		Lancement de accountant.c
+
+	runex7
+		Compilation de spy.c
+		Lancement de spy
+
+	all
+		Génère tous les binaires.
+
+	directories
+		Création des répertoires temporaires s'ils n'existent pas déjà
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+	cleanall
+		Suppression des répertoires et fichiers temporaires
+
+
+== Etat d'avancement ==
+
+	Exercices 1 à 7 : OK
+
+== Réponses ==
+
+	Exercice 1
+
+    init-sig.1
+    Ce programme est sensé attendre un signal, puis afficher un message.
+    Cependant, lors de la réception du signal, les autres instructions ne sont pas exécutée et le programme se termine.
+
+    1) Le programme ne se termine pas de lui-même. Un SIGINT est nécessaire.
+    2) L'affichage prévu ne se fait pas. La réception du signal n'affiche pas les messages attendus.
+
+    init-sig.2
+    Ce programme initialise un masque de signaux qui ignore tous les signaux, sauf SIGINT. sigsuspend interrompt le programme en attente d'un signal. Cependant, lors de la réception du signal, les autres instructions ne sont pas exécutée et le programme se termine.
+
+    1) Le programme ne se termine pas de lui-même. Un SIGINT est nécessaire.
+    2) L'affichage prévu ne se fait pas. La réception du signal n'affiche pas les messages attendus.
+
+    init-sig.3
+    Ce programme ignore les signaux SIGINT qu'il reçoit. Néanmoins, il bloque aussi SIGALRM et le programme ne se termine pas.
+
+    1) Le programme ne se termine pas de lui-même. Un SIGTERM est nécessaire.
+    2) L'affichage prévu ne se fait pas. La réception du signal n'affiche pas les messages attendus.
+
+    init-sig.4
+    Tous les signaux sauf SIGINT sont bloqués. Il installe un handler à exécuter lors de la reception d'un SIGINT. Un 1er SIGINT est lancé, et le message "APRES 1er sigsuspend" s'affiche. Ensuite, tous les autres signaux sont ignorés et le programme ne se termine pas.
+
+    1) Le programme ne se termine pas de lui-même. Un SIGKILL est nécessaire.
+    2) L'affichage prévu ne se fait pas. Seul "AVANT sigsuspend" et "APRES 1er sigsuspend" sont affichés.
+
+    init-sig.5
+    Tous les signaux sauf SIGINT et SIGALRM sont bloqués. Il installe deux handlers à exécuter lors de la reception d'un SIGINT et d'un SIGALRM. Un signal SIGALRM est envoyé toutes les 5 secondes. A chaque signal reçu possible, le programme affiche le message correspondant, soit autant de messages que d'appels reçus. Le programme ne se termine pas.
+
+    1) Le programme ne se termine pas de lui-même. Un SIGKILL est nécessaire.
+    2) L'affichage prévu se fait bien.
+
+
+	Exercice 2
+    Le zombie n'est pas tué/ ne réagit pas au SIGKILL. Pour tuer le zombie, il faut soit tuer le parent, ou bien envoyer SIGCHLD au parent, pour enlever le zombie de la table des processus.
+
+
+	Exercice 3
+    Si les signaux sont démasqués avant l'affichage, les signaux pendants seront pris en compte et traités quand le programme est élu à nouveau sans exécuter la suite des instructions concernant l'affichage.
+
+
+	Exercice 4
+    Non, voir remarque de l'exercice 3.
+
+
+	Exercice 5
+    La valeur maximale affichée est de 1. On en déduit que le handler n'est appelé qu'une seule fois. C'est parce que les signaux pendants ne sont pas cumulatifs. Quand le programme est élu à nouveau, le handler lié à SIGINT est exécuté, et il n'y a plus de signal SIGINT à traiter.
+
+    Non, voir remarque de l'exercice 3. Si le programme recoit un signal non couvert/traité par un handler lors de sa réelection, ce signal sera pris en compte après l'exécution du handler associé à SIGINT, et les instructions suivantes ne seront pas exécutées.

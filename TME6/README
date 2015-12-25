@@ -1,0 +1,74 @@
+== Participants : 1 ==
+
+	Elias BOUTALEB
+
+== Fichiers inclus ==
+
+    src/liste-rep.c
+    Recense le contenu du répertoire donné en argument, ou le répertoire courant sinon.
+        [Ex. 1]
+
+    src/setfilestats.c
+    Permet d'effacer, renommer ou de changer les droits d'un fichier.
+        [Ex. 2]
+
+    src/filefusion.c
+    Fusionne le contenu de deux fichiers texte mot par mot.
+        [Ex. 3]
+
+    src/findword.c
+    Trouve le nombre d'occurences d'un mot dans un fichier texte donné.
+        [Ex. 4]
+
+    src/ex5.c
+    Affiche des messages sur la sortie standard, redirige un message vers un fichier donné en argument.
+        [Ex. 5]
+
+    a, b
+    Fichiers de tests pour l'exercice 3.
+
+    sdf
+    Fichier de test pour l'exercice 4.
+
+
+== Directives de 'Makefile' ==
+
+	runliste-rep
+		Compilation de liste-rep.c
+		Lancement de liste-rep
+
+	runsetfilestats
+		Compilation de setfilestats.c
+		Lancement de setfilestats
+
+	runfilefusion
+		Compilation de filefusion.c
+		Lancement de filefusion
+
+	runfindword
+		Compilation de findword.c
+		Lancement de findword
+
+	runex5
+		Compilation de ex5.c
+		Lancement de ex5
+
+	all
+		Génère tous les binaires.
+
+	directories
+		Création des répertoires temporaires s'ils n'existent pas déjà
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+	cleanall
+		Suppression des répertoires et fichiers temporaires
+
+
+== Etat d'avancement ==
+
+	Exercices 1 à 5 : OK
+
+== Réponses ==
+

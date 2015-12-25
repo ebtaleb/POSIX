@@ -1,0 +1,90 @@
+== Participants : 1 ==
+
+	Elias BOUTALEB
+
+
+== Fichiers inclus ==
+
+    src/ex1.c
+        Creation d'une chaine de N_FILS processus.
+        [Ex. 1]
+
+    src/fork-exec.c
+        Affiche et compare les dates.
+        [Ex. 2]
+
+    src/ex3.c
+        Compile et linke les fichiers passés en arguments.
+        [Ex. 3]
+
+    src/ex4.c
+        Programme qui fait un recouvrement de code sur lui-même autant de fois que spécifié en argument.
+        [Ex. 4]
+
+    src/spy.c
+        Mini shell.
+        [Ex. 5]
+
+
+
+== Directives de 'Makefile' ==
+
+	runex1
+		Compilation de ex1.c
+		Lancement de ex1
+
+	runfork-exec
+		Compilation de fork-exec.c
+		Lancement de fork-exec
+
+	runex3
+		Compilation de ex3.c
+		Lancement de ex3
+
+	runex4
+		Compilation de ex4.c
+		Lancement de ex4
+
+	runspy
+		Compilation de spy.c
+		Lancement de spy
+
+	all
+		Génère tous les binaires.
+
+	directories
+		Création des répertoires temporaires s'ils n'existent pas déjà
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+
+	cleanall
+		Suppression des répertoires et fichiers temporaires
+
+
+== Etat d'avancement ==
+
+	Exercices 1 à 5 : OK
+
+== Réponses ==
+
+	Exercice 1
+
+Non, l'affichage ne serait pas possible ni par le père, ni par le premier fils : en effet,
+à chaque appel à fork(), des copies des variables leur sont passées, et lorsque les fils
+modifient leurs copies, les variables des autres processus ne sont pas affectées.
+
+	Exercice 2
+
+Resultat de la commande 'date'
+1391345045
+
+Au moment de l'appel à execlp, le code du programme qui s'exécute (en l'occurence fork-exec.c) est
+remplacé par celui de date. Ainsi, tout ce qui suit l'appel à execlp n'est pas exécuté.
+
+	Exercice 4
+
+Le PID est toujours le même. A chaque appel à exec, le code de ex4 est recouvert par lui-même, mais il n'y a pas
+de création de nouveau processus comme avec fork(). Le nouveau recouvrement est exécuté dans l'espace d'adressage
+du processus appelant.

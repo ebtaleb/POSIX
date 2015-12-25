@@ -1,0 +1,67 @@
+== Participants : 1 ==
+
+	Elias BOUTALEB
+
+
+== Fichiers inclus ==
+
+    src/init-sigs-ex1
+        Des programmes dont le comportement face aux signaux doit être étudié.
+        [Ex. 1]
+
+    src/voodoo.c
+        Crée un zombie - processus fils qui se termine sans que le parent l'attende et lise son code de sortie.
+        [Ex. 2]
+
+    src/pending-signals.c
+        [Ex. 3]
+
+    src/pending-signals-2.c
+        [Ex. 4]
+
+== Directives de 'Makefile' ==
+
+	runex1
+		Compilation de wait.c
+		Lancement de wait
+
+	runex2
+		Compilation de sleep.c
+		Lancement de sleep
+
+	runex3
+		Compilation de synchro3.c
+		Lancement de synchro3
+
+	runex4
+		Compilation de reprise.c
+		Lancement de reprise
+
+	all
+		Génère tous les binaires.
+
+	directories
+		Création des répertoires temporaires s'ils n'existent pas déjà
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+	cleanall
+		Suppression des répertoires et fichiers temporaires
+
+
+== Etat d'avancement ==
+
+	Exercices 1 à 2 : OK
+
+    Exercice 3 : Non fait, je n'ai pas compris comment coordonner l'envoi de signaux entre le père et ses deux fils.
+
+    Exercice 4 : Incomplet, je n'ai pas compris comment l'on peut passer les signaux via sigsetjmp et siglongjmp.
+
+== Réponses ==
+
+	Exercice 1
+
+    Non, le design même du programme fait que un seul fils peut être attendu. S'il y en avait deux ou plus,
+    le père n'attendrait qu'un seul fils avant de se terminer.
+

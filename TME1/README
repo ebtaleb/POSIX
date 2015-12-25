@@ -1,0 +1,75 @@
+== Participants : 1 ==
+
+	Elias BOUTALEB
+	
+
+== Fichiers inclus ==
+
+	include/fifo.h
+		Définitions (types et opérations) pour une file (FIFO) générique
+		[Ex. 6, 7]
+		
+	include/list.h
+		Définitions (types et opérations) pour une liste doublement chaînée générique
+		[Ex. 4, 5, 6]
+
+	include/stack.h
+		Définitions (types et opérations) pour une pile (LIFO) générique
+		[Ex. 1, 2, 5]
+
+	src/fifo_test.c
+		Programme principal (main) pour tester la file générique
+		[Ex. 6]
+
+	src/stack_array.c
+		Implémentation de la pile sous forme de tableau statique
+		[Ex. 1, 2]
+
+	src/stack_test.c
+		Programme principal (main) pour tester la pile générique
+		[Ex. 1, 2, 3, 5]
+
+	src/list_impl.c
+		Squelette d'implémentation de la liste doublement chaînée (à compléter)
+		[Ex. 4, 5, 6, 7]
+
+	src/stack_list.c
+		Implémentation d'une pile.
+		[Ex 5]
+
+	src/fifo_list.c
+		Implémentation d'une file.
+		[Ex 6]
+
+== Directives de 'makefile.ini' ==
+
+	runstack
+		Compilation des implémentations stack_array.c, stack_list.c et fifo_list.c avec les programmes de test de la pile (stack_test.c) et de la file (fifo_test.c)
+		Lancement des exécutables stack_array_test, stack_list_test et fifo_test
+	
+	all
+		Renvoi vers 'runstack'
+	
+	directories
+		Création des répertoires temporaires s'ils n'existent pas déjà
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+
+	cleanall
+		Suppression des répertoires et fichiers temporaires
+
+
+== Etat d'avancement ==
+
+	L'exercice 1 (pile sous forme de tableau statique) - OK
+
+	Exercice 2 à 7 - OK
+
+
+== Réponses ==
+
+	Exercice 7 :
+		On garde dans les structures de données associées (pile et file) un compteur d'éléments (number_of_elements) incrémenté et décrémenté respectivement à l'insertion 
+		et à la suppression d'un élément (push/pop pour LIFO, queue/unqueue pour FIFO). -- voir stack_list.c et fifo_list.c pour plus de détails

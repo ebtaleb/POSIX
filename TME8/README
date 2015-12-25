@@ -1,0 +1,49 @@
+== Participants : 1 ==
+
+	Elias BOUTALEB
+
+== Fichiers inclus ==
+
+    src/converters.c
+        Source pour single_converter.
+        [Ex 1]
+
+    src/conversion_server.c
+        Serveur qui traite les requêtes de conversion.
+        [Ex 2]
+
+    src/conversion_client.c
+        Programme client pour envoyer des requêtes de conversion.
+        [Ex 2 et 3]
+
+    src/multi_converter.c
+        Serveur de l'exercice 2 qui délègue les conversions à ses fils.
+        [Ex 3]
+
+    include/converters.h
+        Interface de conversion.
+
+== Directives de 'Makefile' ==
+
+	run-ex1
+		Compilation de single_converter
+		Lancement de single_converter
+
+	directories
+		Création des répertoires temporaires s'ils n'existent pas déjà
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+	cleanall
+		Suppression des répertoires et fichiers temporaires
+
+
+== Etat d'avancement ==
+
+Exercice 1 : OK
+Exercice 2 : OK
+Exercice 3 :
+
+== Réponses ==
+

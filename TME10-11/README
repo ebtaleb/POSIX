@@ -1,0 +1,61 @@
+== Participants : 1 ==
+
+	Elias BOUTALEB
+
+== Fichiers inclus ==
+
+    src/myqueue.c
+    	Implémentation de la file de messages.
+
+    src/test1_myqueue.c
+    	Des processus fils communiquent entre eux via la file de messages maison.
+
+    src/test2_myqueue.c
+        Programme qui notifie la présence de messages dans la file.
+
+    src/test1.c
+    	Version de test1_myqueue utilisant la file POSIX
+
+    src/test2.c
+    	Version de test2_myqueue utilisant la file POSIX
+
+    include/myqueue.h
+        Interface de la file de messages.
+
+== Directives de 'Makefile' ==
+
+	run-test1
+		Compilation de test1_myqueue.c
+		Lancement de test1_myqueue
+
+	run-test2
+		Compilation de test2_myqueue.c
+		Lancement de test2_myqueue
+
+	run-test1-norm
+		Compilation de test1.c
+		Lancement de test1
+
+	run-test2-norm
+		Compilation de test2.c
+		Lancement de test2
+
+	directories
+		Création des répertoires temporaires s'ils n'existent pas déjà
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+	cleanall
+		Suppression des répertoires et fichiers temporaires
+
+
+== Etat d'avancement ==
+
+La file ne fonctionne pas. Dans test1_myqueue, les fils ne modifient pas les données partagées dans le segment de données, malgré le fait que le segment ne contienne aucune
+mémoire allouée dynamiquement. La concurrence ne fonctionne pas non plus, le père bloque pour une raison inconnue, je n'ai pas réussi à trouver comment régler les sémaphores.
+test2_myqueue ne fonctionne pas non plus, je voulais d'abord faire fonctionner test1_myqueue.
+
+
+== Réponses ==
+

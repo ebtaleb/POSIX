@@ -1,0 +1,102 @@
+== Participants : 1 ==
+
+	Elias BOUTALEB
+
+
+== Fichiers inclus ==
+
+    include/converters.h
+        Définitions (types et opérations) pour un convertisseur
+        [Ex. 5]
+
+    src/ex1it.c
+        Creation de N_FILS processus de maniere iterative.
+        [Ex. 1]
+
+    src/ex1rec.c
+        Creation de N_FILS processus de maniere recursive.
+        [Ex. 1]
+
+    src/ex2prime.c
+        Creation de N_FILS processus de maniere iterative, attente d'un fils quelconque.
+        [Ex. 2]
+
+    src/ex2bis.c
+        Creation de N_FILS processus de maniere iterative, attente de tous les fils.
+        [Ex. 2]
+
+    src/ex2ter.c
+        Creation de N_FILS processus de maniere iterative, attente du dernier fils cree.
+        [Ex. 2]
+
+    src/ex3.c
+        Creation d'un arbre de processus.
+        [Ex. 3]
+
+    src/decoder.c
+        Calculateur de carre magique par force brute, delegue a 10 processus fils.
+        [Ex. 4]
+
+    src/converters.c
+        Convertisseur de devise, delegue les conversions a 5 processus fils.
+        [Ex. 5]
+
+
+
+== Directives de 'makefile.ini' ==
+
+	runex1it
+		Compilation de ex1it.c
+		Lancement de ex1it
+
+	runex1rec
+		Compilation de ex1rec.c
+		Lancement de ex1rec
+
+	runex2prime
+		Compilation de ex2prime.c
+		Lancement de ex2prime
+
+	runex2bis
+		Compilation de ex2bis.c
+		Lancement de ex2bis
+
+	runex2ter
+		Compilation de ex2ter.c
+		Lancement de ex2ter
+
+	runex3
+		Compilation de ex3.c
+		Lancement de ex3
+
+	rundecoder
+		Compilation de decoder.c (ex4)
+		Lancement de decoder
+
+	run_simple_converter
+		Compilation de converters.c (ex5)
+		Lancement de simple_converter
+
+	all
+		Génère tous les binaires.
+
+	directories
+		Création des répertoires temporaires s'ils n'existent pas déjà
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+
+	cleanall
+		Suppression des répertoires et fichiers temporaires
+
+
+== Etat d'avancement ==
+
+	Exercices 1 à 5 : OK
+
+    Le code de l'exercice 4 se comporte bizarrement, un fils en particulier fait 2 affichages de la meme matrice, mais retourne une valeur de 256.
+
+== Réponses ==
+
+	Exercice 3 : Au total, 6 processus fils sont crées.
